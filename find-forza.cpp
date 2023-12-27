@@ -12,13 +12,6 @@
 
 using std::cout;
 
-struct PackageInfo
-{
-	winrt::hstring displayName;
-	winrt::hstring id;
-	winrt::hstring installedPath;
-};
-
 void PrintPackage(winrt::Windows::ApplicationModel::Package package)
 {
 	// Some displaynames contain unicode characters, like the trademark symbol after 'Thunderbolt'.
