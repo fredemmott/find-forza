@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 
-using std::wcout, std::endl;
+using std::cout;
 
 struct PackageInfo
 {
@@ -27,7 +27,7 @@ int main()
 	std::vector<winrt::Windows::ApplicationModel::Package> packages;
 
 	// Convert the Windows::Foundation::Collections::IIterable to an std::vector...
-	for (auto package : pm.FindPackagesForUser({}))
+	for (auto package : pm.FindPackagesForUser(L""))
 	{
 		packages.push_back(package);
 	}
@@ -37,11 +37,18 @@ int main()
 
 	for (auto package : packages)
 	{
-		wcout
-			<< std::format(L"{}:", package.Id().FullName()) << endl
-			<< std::format(L"\tDisplayName:\t{}", package.DisplayName()) << endl
-			<< std::format(L"\tInstalledPath:\t{}", package.InstalledPath()) << endl;
+		if (package.IsFramework()) {
+			continue;
+		}
+		// Some displaynames contain unicode characters, like the trademark symbol after 'Thunderbolt'.
+		// Using `wcout` and the wide strings seems to occassionally get confused by this, so this
+		// program is built with the UTF-8 code page forced in the manifest, and uses the UTF-8 conve
+		// 		// program is built with the UTF-8 code page forced in the manifest, and uses the UTF-8 conversions
+		cout << std::format("{}:\n", winrt::to_string(package.Id().FullName()));
+		cout << std::format("\tDisplayName:\t{}\n", winrt::to_string(package.DisplayName()));
+		cout << std::format("\tInstalledPath:\t{}\n", winrt::to_string(package.InstalledPath()));
 	}
+	cout << std::flush;
 
 	return 0;
 }
