@@ -48,7 +48,8 @@ int main()
 		PrintPackage(package);
 	}
 
-	const std::map<const char *, const wchar_t *> wanted{
+	// Found the IDs by searching the previous output for "Forza" in the DisplayName
+	const std::map<const char *, const wchar_t *> wanted {
 		{"Forza Horizon 5", L"Microsoft.624F8B84B80_3.629.845.0_x64__8wekyb3d8bbwe"},
 		{"Forza Motorsport 7", L"Microsoft.ApolloBaseGame_1.174.4791.2_x64__8wekyb3d8bbwe"},
 	};
@@ -56,7 +57,6 @@ int main()
 	for (const auto [label, id] : wanted)
 	{
 		cout << std::format("----------\n{}\n----------\n", label);
-		// found the ID by searching the previous output for "Forza" in the DisplayName
 		auto it = std::ranges::find(packages, id, [](auto pkg)
 									{ return pkg.Id().FullName(); });
 		if (it == packages.end())
