@@ -16,8 +16,7 @@ void PrintPackage(winrt::Windows::ApplicationModel::Package package)
 {
 	// Some displaynames contain unicode characters, like the trademark symbol after 'Thunderbolt'.
 	// Using `wcout` and the wide strings seems to occassionally get confused by this, so this
-	// program is built with the UTF-8 code page forced in the manifest, and uses the UTF-8 conve
-	// 		// program is built with the UTF-8 code page forced in the manifest, and uses the UTF-8 conversions
+	// program is built with the UTF-8 code page forced in the manifest, and uses the UTF-8 conversions
 	cout << std::format("{}:\n", winrt::to_string(package.Id().FullName()));
 	cout << std::format("\tDisplayName:\t{}\n", winrt::to_string(package.DisplayName()));
 	cout << std::format("\tInstalledPath:\t{}\n", winrt::to_string(package.InstalledPath()));
