@@ -14,7 +14,11 @@ You can't, but you don't need it, and shouldn't use it.
 
 # Warnings
 
-You should persist the package `FamilyName`, not the installation path - the installation path and full name will change every time the version number changes.
+You should persist and match on the package `FamilyName`:
+
+  - not the installation path: the installation path includes the version number, so will change when upgrades are installed
+  - not the `FullName`: this also includes the version number
+  - not the `DisplayName`: this may be localized/translated
 
 # Example output
 
