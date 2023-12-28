@@ -15,27 +15,45 @@ You can't, but you don't need it, and shouldn't use it.
 # Example output
 
 ```
-... lots of packages ...
-c5e2524a-ea46-4f67-841f-6a9465d9d515_10.0.19041.3636_neutral_neutral_cw5n1h2txyewy:
-        DisplayName:    File Explorer
-        InstalledPath:  C:\Windows\SystemApps\Microsoft.Windows.FileExplorer_cw5n1h2txyewy
-microsoft.windowscommunicationsapps_16005.14326.21768.0_x64__8wekyb3d8bbwe:
-        DisplayName:    Mail and Calendar
-        InstalledPath:  C:\Program Files\WindowsApps\microsoft.windowscommunicationsapps_16005.14326.21768.0_x64__8wekyb3d8bbwe
-windows.immersivecontrolpanel_10.0.2.1000_neutral_neutral_cw5n1h2txyewy:
-        DisplayName:    Settings
-        InstalledPath:  C:\Windows\ImmersiveControlPanel
+microsoft.windowscommunicationsapps_8wekyb3d8bbwe:
+        DisplayName:   Mail and Calendar
+        FamilyName:    microsoft.windowscommunicationsapps_8wekyb3d8bbwe
+        FullName:      microsoft.windowscommunicationsapps_16005.14326.21768.0_x64__8wekyb3d8bbwe
+        Name:          microsoft.windowscommunicationsapps
+        InstalledPath: C:\Program Files\WindowsApps\microsoft.windowscommunicationsapps_16005.14326.21768.0_x64__8wekyb3d8bbwe
+windows.immersivecontrolpanel_cw5n1h2txyewy:
+        DisplayName:   Settings
+        FamilyName:    windows.immersivecontrolpanel_cw5n1h2txyewy
+        FullName:      windows.immersivecontrolpanel_10.0.2.1000_neutral_neutral_cw5n1h2txyewy
+        Name:          windows.immersivecontrolpanel
+        InstalledPath: C:\Windows\ImmersiveControlPanel
 ----------
 Forza Horizon 5
 ----------
-Microsoft.624F8B84B80_3.629.845.0_x64__8wekyb3d8bbwe:
-        DisplayName:    Forza Horizon 5
-        InstalledPath:  C:\Program Files\WindowsApps\Microsoft.624F8B84B80_3.629.845.0_x64__8wekyb3d8bbwe
+Microsoft.624F8B84B80_8wekyb3d8bbwe:
+        DisplayName:   Forza Horizon 5
+        FamilyName:    Microsoft.624F8B84B80_8wekyb3d8bbwe
+        FullName:      Microsoft.624F8B84B80_3.629.845.0_x64__8wekyb3d8bbwe
+        Name:          Microsoft.624F8B84B80
+        InstalledPath: C:\Program Files\WindowsApps\Microsoft.624F8B84B80_3.629.845.0_x64__8wekyb3d8bbwe
 ----------
 Forza Motorsport 7
 ----------
-Microsoft.ApolloBaseGame_1.174.4791.2_x64__8wekyb3d8bbwe:
-        DisplayName:    Forza Motorsport 7
-        InstalledPath:  C:\Program Files\WindowsApps\Microsoft.ApolloBaseGame_1.174.4791.2_x64__8wekyb3d8bbwe
-PS C:\Users\fred\code\find-forza> 
+Microsoft.ApolloBaseGame_8wekyb3d8bbwe:
+        DisplayName:   Forza Motorsport 7
+        FamilyName:    Microsoft.ApolloBaseGame_8wekyb3d8bbwe
+        FullName:      Microsoft.ApolloBaseGame_1.174.4791.2_x64__8wekyb3d8bbwe
+        Name:          Microsoft.ApolloBaseGame
+        InstalledPath: C:\Program Files\WindowsApps\Microsoft.ApolloBaseGame_1.174.4791.2_x64__8wekyb3d8bbwe
 ```
+
+# Key fields
+
+**You usually want to search for/match based on the `FamilyName` field.**
+
+| Field | Meaning |
+|-------|---------|
+| DisplayName | The actual name, that people see |
+| Name | Usually publisher name and a 'product name', which may be a codename. Can also be random data |
+| FamilyName | The `Name` field, combined with the publisher *ID*, which is derived from the signing certificate information |
+| FullName | Really a unique identifier for a specific .msix/.appx. The `FamilyName` field, combined with the current version number and architecture |
