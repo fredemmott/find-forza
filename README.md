@@ -12,6 +12,10 @@ You can't, but you don't need it, and shouldn't use it.
 - To launch the app, you should call `Launch()` on the `winrt::Windows::ApplicationModel::Package` object
 - To see if it's running, just see if any running executable is from the installation path
 
+# Warnings
+
+You should persist the package `FamilyName`, not the installation path - the installation path and full name will change every time the version number changes.
+
 # Example output
 
 ```
